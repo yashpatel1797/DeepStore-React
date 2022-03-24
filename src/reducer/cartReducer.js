@@ -1,0 +1,19 @@
+export const cartReducer = (state, dispatch) => {
+    switch (dispatch.type) {
+        case "ADD_TO_CART":
+            return { ...state, cartItem: [...state.cartItem, { ...dispatch.payload, qty: 1 }] }
+        case "REMOVE_FROM_CART":
+            return { ...state, cartItem: state.cartItem.filter((item) => item.id !== dispatch.payload.id) }
+        case "INCREASE_CART_QUANTITY":
+            return { ...state, cartItem: state.cartItem.map((item) => item.id === dispatch.payload.id ? { ...item, qty: item.qty + 1 } : item) }
+        case "DECREASE_CART_QUANTITY":
+            return { ...state, cartItem: state.cartItem.map((item) => item.id === dispatch.payload.id ? { ...item, qty: item.qty - 1 } : item) }
+        case "FETCH_PRODUCTS_DATA":
+            return { ...state, productsData: dispatch.payload }
+        case "FETCH_CART_DATA":
+            return { ...state, cartItem: dispatch.payload }
+        default:
+            return state;
+    }
+}
+
