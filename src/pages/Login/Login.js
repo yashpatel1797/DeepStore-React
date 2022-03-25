@@ -1,9 +1,8 @@
 import React, { useReducer, useState } from 'react'
 import './Login.css'
-import { useAuth } from '../../context/AuthenticationContext'
-import { loginFormReducer } from '../../reducer/authReducer'
+import { useAuth } from 'context/AuthenticationContext'
+import { loginFormReducer } from 'reducer/authReducer'
 import axios from 'axios'
-import { useCart } from '../../context/CartContext'
 import { useNavigate, Link } from 'react-router-dom'
 const Login = () => {
     const navigate = useNavigate()

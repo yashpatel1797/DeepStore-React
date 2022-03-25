@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from 'react'
-import { signupFormReducer } from '../../reducer/authReducer'
-import { useAuth } from "../../context/AuthenticationContext"
+import { signupFormReducer } from 'reducer/authReducer'
+import { useAuth } from "context/AuthenticationContext"
 import "./Signup.css"
 import axios from "axios"
 import { useNavigate, Link } from 'react-router-dom'
