@@ -1,12 +1,12 @@
 import './App.css';
-import { Home, Products, Wishlist, Cart, Login, Signup } from "./pages/index";
-import { Navbar, Footer } from './components/index';
+import { Home, Products, Wishlist, Cart, Login, Signup } from "pages/index";
+import { Navbar, Footer } from 'components/index';
 import { Routes, Route } from "react-router-dom";
 import MockMan from 'mockman-js';
-import { ScrollTop } from './utilities/helpers/ScrollTop';
+import { ScrollTop } from 'utilities/helpers/ScrollTop';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { PrivateRoute } from "./PrivateRoute/PrivateRoute"
+import { PrivateRoute } from "PrivateRoute/PrivateRoute"
 function App() {
   return (
     <div className="App">
