@@ -4,7 +4,7 @@ import { useAuth } from "context/AuthenticationContext"
 import { Link, useNavigate } from "react-router-dom";
 import { addItemInWishlist, updateCart, removeItemFromWishlist } from 'utilities/helpers/http-helper';
 
-const Card = ({ item }) => {
+const Card = (props) => {
 
     const { token, isLogin } = useAuth();
     const data = item
@@ -45,7 +45,6 @@ const Card = ({ item }) => {
                     />
                     {data.best_selling === "true" && <span className="card-badge"> Best Selling</span>}
                     {data.new_arrival === "true" && <span className="card-badge"> New Arrival</span>}
-
                 </div>
                 <div className="text-container">
                     <div className="text-container-title">
