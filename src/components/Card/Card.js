@@ -7,7 +7,7 @@ import { addItemInWishlist, updateCart, removeItemFromWishlist } from 'utilities
 const Card = (props) => {
 
     const { token, isLogin } = useAuth();
-    const data = item
+    const data = props.item
     const navigate = useNavigate()
     const { cartItem, cartDispatch, wishlistItem, wishlistDispatch } = useCart();
     const addToCartHandler = () => {
