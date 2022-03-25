@@ -1,16 +1,16 @@
 import React from 'react'
-import { useCart } from '../../context/CartContext'
-import { decreaseCartQuantity, deleteCart, IncreaseCartQuantity, addItemInWishlist } from '../../utilities/helpers/http-helper';
-import { useAuth } from "../../context/AuthenticationContext";
+import { useCart } from 'context/CartContext'
+import { decreaseCartQuantity, deleteCart, IncreaseCartQuantity, addItemInWishlist } from 'utilities/helpers/http-helper';
+import { useAuth } from "context/AuthenticationContext";
 import "./VerticalCard.css";
 
 const VerticalCard = (props) => {
-    const { authState: { token } } = useAuth();
+    const { token } = useAuth();
     const data = props.item;
-    const { cartState: { cartItem, productsData }, cartDispatch, wishlistDispatch, wishlistState: { wishlistItem } } = useCart();
+    const { cartDispatch, wishlistDispatch, wishlistItem } = useCart();
     const moveToWishlistHandler = () => {
         if (wishlistItem.find(item => item.id === data.id)) {
-            console.log("none");
+            return;
         } else {
             wishlistDispatch({ type: "ADD_TO_WISHLIST", payload: data })
             addItemInWishlist(data, token)

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useAuth } from '../../context/AuthenticationContext'
-import { useCart } from '../../context/CartContext'
+import { useAuth } from 'context/AuthenticationContext'
+import { useCart } from 'context/CartContext'
 import './Navbar.css'
 const Navbar = () => {
-    const { authState: { isLogin, userDetails: { firstName } }, authDispatch } = useAuth();
-    const { cartState: { cartItem }, wishlistState: { wishlistItem }, filterDispatch } = useCart();
+    const { isLogin, userDetails: { firstName }, authDispatch } = useAuth();
+    const { cartItem, wishlistItem, filterDispatch } = useCart();
     const logoutHandler = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("userData");

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Card } from '../index'
-import { useCart } from "../../context/CartContext"
+import { useCart } from "context/CartContext"
 
 const NewRelease = () => {
-    const { cartState: { productsData } } = useCart();
+    const { productsData } = useCart();
     return (
         <>
             <section className="featured">
