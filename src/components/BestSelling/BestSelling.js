@@ -1,10 +1,10 @@
 import React from 'react'
 import './BestSelling.css'
 import { Card } from '../index'
-import { useCart } from "../../context/CartContext"
+import { useCart } from "context/CartContext"
 
-const BestSelling = (props) => {
-    const { cartState: { productsData } } = useCart();
+const BestSelling = () => {
+    const { productsData } = useCart();
     return (
         <>
             <section className="featured">

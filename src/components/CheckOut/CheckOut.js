@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { useCart } from '../../context/CartContext';
-import { calculatePrice, calculateFinalPrice, calculateDeliveryCharges } from '../../utilities/calculation';
+import { useCart } from 'context/CartContext';
+import { calculatePrice, calculateFinalPrice, calculateDeliveryCharges } from 'utilities/calculation';
 import "./CheckOut.css"
 const CheckOut = () => {
-    const { cartState: { cartItem } } = useCart();
+    const { cartItem } = useCart();
     const totalPrice = calculatePrice(cartItem)
     const finalPrice = calculateFinalPrice(totalPrice)
     const deliveryCharges = calculateDeliveryCharges(finalPrice)
-    console.log(totalPrice, "h");
-    console.log(finalPrice, "f");
-    console.log(deliveryCharges, "d");
     return (
         <>
             <div className="cart-checkout">

@@ -1,15 +1,15 @@
 import React, { useReducer } from 'react'
-import { useCart } from "../../context/CartContext"
-import { useAuth } from "../../context/AuthenticationContext"
+import { useCart } from "context/CartContext"
+import { useAuth } from "context/AuthenticationContext"
 import { Link, useNavigate } from "react-router-dom";
-import { addItemInWishlist, updateCart, removeItemFromWishlist } from '../../utilities/helpers/http-helper';
+import { addItemInWishlist, updateCart, removeItemFromWishlist } from 'utilities/helpers/http-helper';
 
-const Card = (props) => {
+const Card = ({ item }) => {
 
-    const { authState: { token, isLogin } } = useAuth();
-    const data = props.item
+    const { token, isLogin } = useAuth();
+    const data = item
     const navigate = useNavigate()
-    const { cartState: { cartItem }, addToCart, cartState, cartDispatch, wishlistState: { wishlistItem }, wishlistDispatch } = useCart();
+    const { cartItem, cartDispatch, wishlistItem, wishlistDispatch } = useCart();
     const addToCartHandler = () => {
         if (isLogin) {
             cartDispatch({ type: "ADD_TO_CART", payload: data })
