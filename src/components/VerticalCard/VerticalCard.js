@@ -4,9 +4,9 @@ import { decreaseCartQuantity, deleteCart, IncreaseCartQuantity, addItemInWishli
 import { useAuth } from "context/AuthenticationContext";
 import "./VerticalCard.css";
 
-const VerticalCard = (props) => {
+const VerticalCard = ({ item }) => {
     const { token } = useAuth();
-    const data = props.item;
+    const data = item;
     const { cartDispatch, wishlistDispatch, wishlistItem } = useCart();
     const moveToWishlistHandler = () => {
         if (wishlistItem.find(item => item.id === data.id)) {
