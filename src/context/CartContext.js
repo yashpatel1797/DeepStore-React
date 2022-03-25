@@ -1,17 +1,15 @@
 import React, { useContext, createContext, useReducer, useEffect } from 'react'
-import { cartReducer } from '../reducer/cartReducer';
-import { filterReducer } from '../reducer/filterReducer';
-import { wishlistReducer } from '../reducer/wishlistReducer';
-import { getRequestDataFromServer } from '../utilities/helpers/http-helper'
-import { useAuth } from './AuthenticationContext';
+import { cartReducer } from 'reducer/cartReducer';
+import { filterReducer } from 'reducer/filterReducer';
+import { wishlistReducer } from 'reducer/wishlistReducer';
+import { getRequestDataFromServer } from 'utilities/helpers/http-helper'
 const CartContext = createContext();
 
 
 const CartProvider = ({ children }) => {
-  const { authState: { token } } = useAuth();
   const { cart, wishlist } = JSON.parse(localStorage.getItem("userData")) || { cart: [], wishlist: [] }
 
-  const [cartState, cartDispatch] = useReducer(cartReducer, {
+  const [{ productsData, cartItem }, cartDispatch] = useReducer(cartReducer, {
     productsData: [],
     cartItem: cart
   })
@@ -19,7 +17,7 @@ const CartProvider = ({ children }) => {
     getRequestDataFromServer("/api/products", cartDispatch)
   }, [])
 
-  const [filterState, filterDispatch] = useReducer(filterReducer, {
+  const [{ sortBy, selectedRating, priceRange, selectedCategory, searchQuery }, filterDispatch] = useReducer(filterReducer, {
     sortBy: "",
     selectedRating: 0,
     priceRange: 1000,
@@ -27,11 +25,11 @@ const CartProvider = ({ children }) => {
     searchQuery: ""
   })
 
-  const [wishlistState, wishlistDispatch] = useReducer(wishlistReducer, {
+  const [{ wishlistItem }, wishlistDispatch] = useReducer(wishlistReducer, {
     wishlistItem: wishlist
   })
   return (
-    <CartContext.Provider value={{ cartState, cartDispatch, filterState, filterDispatch, wishlistState, wishlistDispatch }}>
+    <CartContext.Provider value={{ productsData, cartItem, cartDispatch, sortBy, selectedRating, priceRange, selectedCategory, searchQuery, filterDispatch, wishlistItem, wishlistDispatch }}>
       {children}
     </CartContext.Provider>
   )
