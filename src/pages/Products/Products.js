@@ -1,11 +1,11 @@
 import React from 'react'
-import { Card, Filter } from "../../components/index"
-import { useCart } from "../../context/CartContext"
-import filterFunction from '../../utilities/filterFunction'
+import { Card, Filter } from "components/index"
+import { useCart } from "context/CartContext"
+import filterFunction from 'utilities/filterFunction'
 import "./Products.css"
 
-const Products = (props) => {
-    const { cartState: { productsData }, filterState: { sortBy, selectedRating, priceRange, selectedCategory, searchQuery } } = useCart()
+const Products = () => {
+    const { productsData, sortBy, selectedRating, priceRange, selectedCategory, searchQuery } = useCart()
     const data = filterFunction(productsData, sortBy, selectedRating, priceRange, selectedCategory, searchQuery)
 
     return (

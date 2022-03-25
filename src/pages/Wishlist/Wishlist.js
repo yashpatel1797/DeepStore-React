@@ -1,10 +1,10 @@
 import React from 'react'
-import { Card } from '../../components/index'
+import { Card } from 'components/index'
 import './Wishlist.css'
-import { useCart } from '../../context/CartContext'
+import { useCart } from 'context/CartContext'
 
 const Wishlist = () => {
-    const { wishlistState: { wishlistItem } } = useCart();
+    const { wishlistItem } = useCart();
     return (
         <>
             <h3 className="page-title">My Wishlist</h3>

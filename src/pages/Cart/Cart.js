@@ -1,12 +1,10 @@
 import React from 'react'
-import { VerticalCard, CheckOut } from "../../components/index"
+import { VerticalCard, CheckOut } from "components/index"
 import './Cart.css'
-import { useCart } from '../../context/CartContext'
+import { useCart } from 'context/CartContext'
 
 const Cart = () => {
-    const { cartState: { cartItem } } = useCart();
-
-    console.log(cartItem, "in cart page");
+    const { cartItem } = useCart();
     return (
         <>
             <h3 className="page-title">My Cart</h3>
