@@ -1,7 +1,7 @@
 import React, { useReducer, useState } from 'react'
 import './Login.css'
-import { useAuth } from 'context/AuthenticationContext'
-import { loginFormReducer } from 'reducer/authReducer'
+import { useAuth } from 'context'
+import { loginFormReducer } from 'reducer'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
 const Login = () => {
@@ -16,18 +16,19 @@ const Login = () => {
     const passwordVisibilityHandler = () => {
         setTogglePassword(!togglePassword)
     }
+
     const testHandler = () => {
         loginDispatch({ type: "SET_EMAIL", payload: "yashpatel@gmail.com" })
         loginDispatch({ type: "SET_PASSWORD", payload: "yashpatel" })
-        console.log(email, password);
+
     }
 
     const submitHandler = async (e, email, password) => {
         e.preventDefault();
         try {
-            console.log(email, password);
+
             const response = await axios.post("api/auth/login", { email, password });
-            console.log(response);
+
 
             localStorage.setItem("token", response.data.encodedToken)
             localStorage.setItem('userData', JSON.stringify(response.data.foundUser));

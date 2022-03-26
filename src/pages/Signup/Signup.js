@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from 'react'
-import { signupFormReducer } from 'reducer/authReducer'
-import { useAuth } from "context/AuthenticationContext"
+import { signupFormReducer } from 'reducer'
+import { useAuth } from "context"
 import "./Signup.css"
 import axios from "axios"
 import { useNavigate, Link } from 'react-router-dom'
@@ -27,15 +27,12 @@ const Signup = () => {
     const submitHandler = async (e, firstName, lastName, email, password, confirmPassword) => {
         e.preventDefault();
         try {
-            console.log("qwe");
-            console.log(email, password);
             const response = await axios.post('api/auth/signup', { firstName, lastName, email, password });
             localStorage.setItem("token", response.data.encodedToken)
             localStorage.setItem('userData', JSON.stringify(response.data.createdUser));
             authDispatch({ type: "TOKEN_ADD", payload: response.data.encodedToken })
-            console.log(response);
         } catch (error) {
-            console.log(error, ",mb");
+            console.log(error);
         } finally {
             navigate("/products")
         }
@@ -124,5 +121,4 @@ const Signup = () => {
         </>
     )
 }
-
 export { Signup }
