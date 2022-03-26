@@ -1,5 +1,5 @@
 import React from 'react'
-import { Hero, FeatureCategory, BestSelling, NewRelease } from "../../components/index";
+import { Hero, FeatureCategory, BestSelling, NewRelease } from "components";
 
 const Home = () => {
     return (

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Card } from 'components/index'
+import { Card } from 'components'
 import './Wishlist.css'
-import { useCart } from 'context/CartContext'
+import { useCart } from 'context'
 
 const Wishlist = () => {
     const { wishlistItem } = useCart();

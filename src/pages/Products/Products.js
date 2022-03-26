@@ -1,7 +1,7 @@
 import React from 'react'
-import { Card, Filter } from "components/index"
-import { useCart } from "context/CartContext"
-import filterFunction from 'utilities/filterFunction'
+import { Card, Filter } from "components"
+import { useCart } from "context"
+import { filterFunction } from 'utilities'
 import "./Products.css"
 
 const Products = () => {

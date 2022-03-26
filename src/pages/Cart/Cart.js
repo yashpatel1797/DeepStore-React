@@ -1,7 +1,7 @@
 import React from 'react'
-import { VerticalCard, CheckOut } from "components/index"
+import { VerticalCard, CheckOut } from "components"
 import './Cart.css'
-import { useCart } from 'context/CartContext'
+import { useCart } from 'context'
 
 const Cart = () => {
     const { cartItem } = useCart();
