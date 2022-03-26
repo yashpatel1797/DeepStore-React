@@ -1,7 +1,7 @@
 import React from 'react'
-import { useCart } from 'context/CartContext'
-import { decreaseCartQuantity, deleteCart, IncreaseCartQuantity, addItemInWishlist } from 'utilities/helpers/http-helper';
-import { useAuth } from "context/AuthenticationContext";
+import { useCart } from 'context'
+import { decreaseCartQuantity, deleteCart, IncreaseCartQuantity, addItemInWishlist } from 'utilities';
+import { useAuth } from "context";
 import "./VerticalCard.css";
 
 const VerticalCard = ({ item }) => {

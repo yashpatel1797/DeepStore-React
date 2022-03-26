@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useAuth } from 'context/AuthenticationContext'
-import { useCart } from 'context/CartContext'
+import { useAuth, useCart } from 'context'
 import './Navbar.css'
 const Navbar = () => {
     const { isLogin, userDetails: { firstName }, authDispatch } = useAuth();
