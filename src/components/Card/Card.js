@@ -1,8 +1,7 @@
 import React, { useReducer } from 'react'
-import { useCart } from "context/CartContext"
-import { useAuth } from "context/AuthenticationContext"
+import { useCart, useAuth } from "context"
 import { Link, useNavigate } from "react-router-dom";
-import { addItemInWishlist, updateCart, removeItemFromWishlist } from 'utilities/helpers/http-helper';
+import { addItemInWishlist, updateCart, removeItemFromWishlist } from 'utilities';
 
 const Card = (props) => {
 

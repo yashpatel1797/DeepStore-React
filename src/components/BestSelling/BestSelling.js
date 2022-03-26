@@ -1,7 +1,7 @@
 import React from 'react'
 import './BestSelling.css'
-import { Card } from '../index'
-import { useCart } from "context/CartContext"
+import { Card } from '..'
+import { useCart } from "context"
 
 const BestSelling = () => {
     const { productsData } = useCart();

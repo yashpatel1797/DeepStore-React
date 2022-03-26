@@ -1,9 +1,10 @@
 import React from 'react';
-import { useCart } from 'context/CartContext';
+import { useCart } from 'context';
 import './Filter.css'
 
 const Filter = () => {
     const { filterDispatch, sortBy, selectedRating, priceRange, selectedCategory } = useCart()
+
     return (
         <>
             <div className="filter-hamburger">

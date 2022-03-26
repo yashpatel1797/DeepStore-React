@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { useCart } from 'context/CartContext';
-import { calculatePrice, calculateFinalPrice, calculateDeliveryCharges } from 'utilities/calculation';
+import { useCart } from 'context';
+import { calculatePrice, calculateFinalPrice, calculateDeliveryCharges } from 'utilities';
 import "./CheckOut.css"
 const CheckOut = () => {
     const { cartItem } = useCart();
