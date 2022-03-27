@@ -1,19 +1,19 @@
 import { createContext, useContext, useReducer } from "react";
-import { authReducer } from "reducer/authReducer";
+import { authReducer } from "reducer";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
 
-    const { firstName } = JSON.parse(localStorage.getItem('userData')) || { firstName: "" }
-    let tokenDetails = localStorage.getItem("token") || { token: '' }
-    const [{ isLogin, token, userDetails }, authDispatch] = useReducer(authReducer, {
+    const userInfo = JSON.parse(localStorage.getItem('userData')) || ""
+    const tokenDetails = localStorage.getItem("token") || ""
+    const [authState, authDispatch] = useReducer(authReducer, {
         isLogin: (tokenDetails !== ''),
         token: tokenDetails,
-        userDetails: firstName
+        userDetails: userInfo
     })
-
-    return (<AuthContext.Provider value={{ isLogin, token, userDetails, authDispatch }}>
+    const { isLogin, token, userDetails: { firstName } } = authState
+    return (<AuthContext.Provider value={{ isLogin, token, firstName, authDispatch }}>
         {children}
     </AuthContext.Provider>)
 }
