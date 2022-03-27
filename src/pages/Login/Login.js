@@ -14,7 +14,7 @@ const Login = () => {
     const [togglePassword, setTogglePassword] = useState(false);
     const showPassword = togglePassword ? "visibility_off" : "visibility";
     const passwordVisibilityHandler = () => {
-        setTogglePassword(!togglePassword)
+        setTogglePassword(togglePassword => !togglePassword)
     }
 
     const testHandler = () => {
@@ -35,10 +35,9 @@ const Login = () => {
             authDispatch({ type: "USER_LOGIN" })
             authDispatch({ type: "TOKEN_ADD", payload: response.data.encodedToken })
             authDispatch({ type: "USER_DATA_ADD", payload: response.data.foundUser })
+            navigate("/")
         } catch (error) {
             console.log(error);
-        } finally {
-            navigate("/")
         }
     }
     return (

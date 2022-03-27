@@ -19,10 +19,10 @@ const Signup = () => {
     const showRePassword = toggleRePassword ? "visibility_off" : "visibility";
 
     const passwordVisibilityHandler = () => {
-        setTogglePassword(!togglePassword)
+        setTogglePassword(togglePassword => !togglePassword)
     }
     const rePasswordVisibilityHandler = () => {
-        setToggleRePassword(!toggleRePassword)
+        setToggleRePassword(toggleRePassword => !toggleRePassword)
     }
     const submitHandler = async (e, firstName, lastName, email, password, confirmPassword) => {
         e.preventDefault();
@@ -31,10 +31,9 @@ const Signup = () => {
             localStorage.setItem("token", response.data.encodedToken)
             localStorage.setItem('userData', JSON.stringify(response.data.createdUser));
             authDispatch({ type: "TOKEN_ADD", payload: response.data.encodedToken })
+            navigate("/")
         } catch (error) {
             console.log(error);
-        } finally {
-            navigate("/products")
         }
     }
     return (
