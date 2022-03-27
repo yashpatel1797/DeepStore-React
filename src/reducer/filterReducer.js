@@ -1,4 +1,4 @@
-export const filterReducer = (state, { ttype, payload }) => {
+export const filterReducer = (state, { type, payload }) => {
     switch (type) {
         case "SORT_BY_PRICE":
             return { ...state, sortBy: payload }
