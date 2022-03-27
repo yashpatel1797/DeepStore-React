@@ -1,20 +1,20 @@
-export const filterReducer = (state, dispatch) => {
-    switch (dispatch.type) {
+export const filterReducer = (state, { ttype, payload }) => {
+    switch (type) {
         case "SORT_BY_PRICE":
-            return { ...state, sortBy: dispatch.payload }
+            return { ...state, sortBy: payload }
         case "FILTER_BY_RATING":
-            return { ...state, selectedRating: dispatch.payload }
+            return { ...state, selectedRating: payload }
         case "FILTER_BY_PRICE_RANGE":
-            return { ...state, priceRange: dispatch.payload }
+            return { ...state, priceRange: payload }
         case "FILTER_BY_CATEGORY":
-            return state.selectedCategory.includes(dispatch.payload)
+            return state.selectedCategory.includes(payload)
                 ? {
                     ...state,
                     selectedCategory:
-                        [...state.selectedCategory.filter(item => item !== dispatch.payload)]
-                } : { ...state, selectedCategory: [...state.selectedCategory, dispatch.payload] }
+                        [...state.selectedCategory.filter(item => item !== payload)]
+                } : { ...state, selectedCategory: [...state.selectedCategory, payload] }
         case "FILTER_BY_SEARCH":
-            return { ...state, searchQuery: dispatch.payload }
+            return { ...state, searchQuery: payload }
         case "RESET_ALL_FILTERS":
             return {
                 ...state,

@@ -1,6 +1,5 @@
-const authReducer = (state, dispatch) => {
-    console.log(state, dispatch);
-    switch (dispatch.type) {
+const authReducer = (state, { type, payload }) => {
+    switch (type) {
         case "USER_LOGIN":
             return { ...state, isLogin: true }
         case "USER_LOGOUT":
@@ -9,36 +8,36 @@ const authReducer = (state, dispatch) => {
                 userDetails: ""
             }
         case "TOKEN_ADD":
-            return { ...state, token: dispatch.payload }
+            return { ...state, token: payload }
         case "USER_DATA_ADD":
-            return { ...state, userDetails: dispatch.payload }
+            return { ...state, userDetails: payload }
         default:
             return state
     }
 }
 
-const loginFormReducer = (state, dispatch) => {
-    switch (dispatch.type) {
+const loginFormReducer = (state, { type, payload }) => {
+    switch (type) {
         case "SET_EMAIL":
-            return { ...state, email: dispatch.payload }
+            return { ...state, email: payload }
         case "SET_PASSWORD":
-            return { ...state, password: dispatch.payload }
+            return { ...state, password: payload }
         default:
             return state;
     }
 }
-const signupFormReducer = (state, dispatch) => {
-    switch (dispatch.type) {
+const signupFormReducer = (state, { type, payload }) => {
+    switch (type) {
         case "SET_FIRSTNAME":
-            return { ...state, firstName: dispatch.payload }
+            return { ...state, firstName: payload }
         case "SET_LASTNAME":
-            return { ...state, lastName: dispatch.payload }
+            return { ...state, lastName: payload }
         case "SET_EMAIL":
-            return { ...state, email: dispatch.payload }
+            return { ...state, email: payload }
         case "SET_PASSWORD":
-            return { ...state, password: dispatch.payload }
+            return { ...state, password: payload }
         case "SET_CONFIRMPASSWORD":
-            return { ...state, confirmPassword: dispatch.payload }
+            return { ...state, confirmPassword: payload }
         default:
             return state;
     }
