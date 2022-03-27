@@ -1,3 +1,13 @@
+/**
+ * 
+ * @param {array} productsData products array of object
+ * @param {string} sortBy sort type
+ * @param {number} selectedRating rating value
+ * @param {number} priceRange price range value
+ * @param {array} selectedCategory array contains selected category
+ * @param {string} searchQuery search string
+ * @returns 
+ */
 const filterFunction = (productsData, sortBy, selectedRating, priceRange, selectedCategory, searchQuery) => {
     let filteredProducts = productsData;
 
@@ -24,4 +34,4 @@ const filterFunction = (productsData, sortBy, selectedRating, priceRange, select
     return filteredProducts;
 }
 
-export default filterFunction
+export { filterFunction }

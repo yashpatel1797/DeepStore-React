@@ -1,6 +1,10 @@
 import axios from "axios"
 import { toast } from "react-toastify";
-
+/**
+ * 
+ * @param {string} url url to get products data
+ * @param  dispatch 
+ */
 const getRequestDataFromServer = async (url, dispatch) => {
     try {
         const { data: { products } } = await axios.get(url)
@@ -9,8 +13,13 @@ const getRequestDataFromServer = async (url, dispatch) => {
         console.log(error);
     }
 }
+
+/**
+ * 
+ * @param {string} token authorization token for header 
+ * @param dispatch 
+ */
 const getCartItems = async (token, dispatch) => {
-    console.log(token);
     try {
         const res = await axios.get("/api/user/cart", {
             headers: {
@@ -22,9 +31,14 @@ const getCartItems = async (token, dispatch) => {
         console.log(error);
     }
 }
+
+/**
+ * 
+ * @param {object} data cart item object
+ * @param {string} token authorization token for header
+ */
 const updateCart = async (data, token) => {
     try {
-        console.log("work here");
         const res = await axios.post("/api/user/cart", {
             product: {
                 ...data
@@ -44,6 +58,11 @@ const updateCart = async (data, token) => {
         toast.error(<p>Failed to add Item in Cart.</p>)
     }
 }
+/**
+ * 
+ * @param {object} data cart item object
+ * @param {string} token authorization token for header
+ */
 const deleteCart = async (data, token) => {
     try {
         const res = await axios.delete(`/api/user/cart/${data._id}`,
@@ -61,6 +80,11 @@ const deleteCart = async (data, token) => {
         toast.error(<p>Failed to remove item from Cart.</p>)
     }
 }
+/**
+ * 
+ * @param {object} data cart item object
+ * @param {string} token authorization token for header
+ */
 const IncreaseCartQuantity = async (data, token) => {
     try {
         const res = await axios.post(`/api/user/cart/${data._id}`, {
@@ -73,17 +97,19 @@ const IncreaseCartQuantity = async (data, token) => {
             }
         })
         toast.success(<p>Cart Quantity increased.</p>)
-
         const dataToUpdate = JSON.parse(localStorage.getItem('userData'))
         dataToUpdate.cart = [...res.data.cart]
         localStorage.setItem('userData', JSON.stringify(dataToUpdate))
-
     } catch (error) {
         console.log(error);
         toast.error(<p>Failed to increase Cart Quantity.</p>)
     }
 }
-
+/**
+ * 
+ * @param {object} data cart item object
+ * @param {string} token authorization token for header
+ */
 const decreaseCartQuantity = async (data, token) => {
     try {
         const res = await axios.post(`/api/user/cart/${data._id}`, {
@@ -104,9 +130,12 @@ const decreaseCartQuantity = async (data, token) => {
         toast.error(<p>Failed to decrease Cart Quantity.</p>)
     }
 }
-
+/**
+ * 
+ * @param {object} data cart item object
+ * @param {string} token authorization token for header
+ */
 const addItemInWishlist = async (data, token) => {
-    console.log(data, "helper");
     try {
         const res = await axios.post("/api/user/wishlist", {
             product: {
@@ -128,6 +157,11 @@ const addItemInWishlist = async (data, token) => {
         toast.error(<p>Failed to add item in wishlist.</p>)
     }
 }
+/**
+ * 
+ * @param {object} data cart item object
+ * @param {string} token authorization token for header
+ */
 const removeItemFromWishlist = async (data, token) => {
     try {
         const res = await axios.delete(`/api/user/wishlist/${data._id}`,
