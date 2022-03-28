@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useAuth, useCart } from 'context'
 import './Navbar.css'
 const Navbar = () => {
-    const { isLogin, userDetails: { firstName }, authDispatch } = useAuth();
+    const { isLogin, firstName, authDispatch } = useAuth();
     const { cartItem, wishlistItem, filterDispatch } = useCart();
     const logoutHandler = () => {
         localStorage.removeItem("token");
