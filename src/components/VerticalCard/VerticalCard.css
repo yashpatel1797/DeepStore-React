@@ -1,0 +1,17 @@
+.btn-cta {
+  width: 100%;
+}
+.row {
+  display: flex;
+  align-items: center;
+}
+.image-container {
+  width: 25rem;
+}
+.text-container-title {
+  padding: 1rem 0;
+}
+
+.text-container-title > h6 {
+  font-size: 2rem;
+}
