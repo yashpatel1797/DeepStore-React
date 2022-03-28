@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import { AuthProvider } from 'context/AuthenticationContext';
-import { CartProvider } from 'context/CartContext';
+import { AuthProvider, CartProvider } from 'context';
 import { makeServer } from 'server'
 import './index.css'
 
