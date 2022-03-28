@@ -10,7 +10,7 @@ const VerticalCard = ({ item }) => {
     const { cartDispatch, wishlistDispatch, wishlistItem } = useCart();
     const moveToWishlistHandler = () => {
         if (wishlistItem.find(item => item.id === data.id)) {
-            return;
+
         } else {
             wishlistDispatch({ type: "ADD_TO_WISHLIST", payload: data })
             addItemInWishlist(data, token)
