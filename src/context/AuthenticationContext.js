@@ -8,7 +8,7 @@ const AuthProvider = ({ children }) => {
     const userInfo = JSON.parse(localStorage.getItem('userData')) || ""
     const tokenDetails = localStorage.getItem("token") || ""
     const [authState, authDispatch] = useReducer(authReducer, {
-        isLogin: (tokenDetails !== ''),
+        isLogin: !!tokenDetails,
         token: tokenDetails,
         userDetails: userInfo
     })
