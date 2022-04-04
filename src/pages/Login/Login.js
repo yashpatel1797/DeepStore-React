@@ -4,11 +4,15 @@ import { useAuth } from 'context'
 import { loginFormReducer } from 'reducer'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
+import { Loader } from "components"
+import { toast } from "react-toastify";
+
 const Login = () => {
     const navigate = useNavigate()
     const { authDispatch } = useAuth();
 
     const [{ email, password }, loginDispatch] = useReducer(loginFormReducer, { email: "", password: "" })
+    const [isLoading, setIsLoading] = useState(false)
 
 
     const [togglePassword, setTogglePassword] = useState(false);
@@ -26,24 +30,25 @@ const Login = () => {
     const submitHandler = async (e, email, password) => {
         e.preventDefault();
         try {
-
+            setIsLoading(true);
             const response = await axios.post("api/auth/login", { email, password });
-
-
             localStorage.setItem("token", response.data.encodedToken)
             localStorage.setItem('userData', JSON.stringify(response.data.foundUser));
             authDispatch({ type: "USER_LOGIN" })
             authDispatch({ type: "TOKEN_ADD", payload: response.data.encodedToken })
             authDispatch({ type: "USER_DATA_ADD", payload: response.data.foundUser })
+            setIsLoading(false)
             navigate("/")
         } catch (error) {
-            console.log(error);
+            setIsLoading(false);
+            toast.error(<p>Not login. Try again.</p>)
+            navigate("/login");
         }
     }
     return (
         <>
             <div className="spacer-3rem"></div>
-            <div className="grid-50-50 login">
+            {isLoading ? <Loader /> : (<div className="grid-50-50 login">
                 <img
                     className="img-responsive"
                     alt="form_1"
@@ -92,7 +97,8 @@ const Login = () => {
                     <Link to="/signup" className="link-signup">
                         <button className="btn btn-link">Create new account here</button></Link>
                 </div>
-            </div>
+            </div>)
+            }
         </>
     )
 }

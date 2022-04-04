@@ -1,7 +1,6 @@
 import React from 'react'
-import { useCart } from 'context'
+import { useCart, useAuth } from 'context'
 import { decreaseCartQuantity, deleteCart, IncreaseCartQuantity, addItemInWishlist } from 'utilities';
-import { useAuth } from "context";
 import "./VerticalCard.css";
 
 const VerticalCard = ({ item }) => {
