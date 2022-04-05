@@ -5,29 +5,29 @@ import "./CheckOut.css"
 const CheckOut = () => {
     const { cartItem } = useCart();
     const totalPrice = calculatePrice(cartItem)
-    const finalPrice = calculateFinalPrice(totalPrice)
-    const deliveryCharges = calculateDeliveryCharges(finalPrice)
+    const deliveryCharges = calculateDeliveryCharges(totalPrice)
+    const finalPrice = calculateFinalPrice(totalPrice, deliveryCharges)
     return (
         <>
             <div className="cart-checkout">
                 <h1>Price Details</h1>
                 <div>
-                    <p>Price(2 items)</p>
-                    <p>₹{totalPrice.sum}</p>
+                    <p>Price({cartItem.length} items)</p>
+                    <p>₹{(totalPrice.sum).toFixed(2)}</p>
                 </div>
                 <div>
                     <p>Discount</p>
-                    <p>-₹{totalPrice.discount}</p>
+                    <p>-₹{(totalPrice.discount).toFixed(2)}</p>
                 </div>
                 <div>
                     <p>Delivery Charges</p>
-                    <p>₹{deliveryCharges}</p>
+                    <p>₹{(deliveryCharges).toFixed(2)}</p>
                 </div>
                 <div>
                     <p>Total Amount</p>
-                    <p>₹{finalPrice}</p>
+                    <p>₹{(finalPrice).toFixed(2)}</p>
                 </div>
-                <p>You will save ₹4000 on this order</p>
+                <p>You will save {(totalPrice.discount).toFixed(2)} on this order</p>
                 <button className="btn btn-solid">Place Order</button>
 
             </div>

@@ -18,12 +18,12 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "Self-help",
+    categoryName: "Self-Help",
     image: "https://images.unsplash.com/reserve/YEc7WB6ASDydBTw6GDlF_antalya-beach-lulu.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8bWVkaXRhdGlvbiUyMGZvY3VzJTIwYm9va3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
   },
   {
     _id: uuid(),
-    categoryName: "Finance",
+    categoryName: "Finances",
     image: "https://images.unsplash.com/photo-1565514417878-a66a6b0f2c7f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZmluYW5jZSUyMGJvb2t8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
   },
 ];

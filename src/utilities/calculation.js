@@ -25,6 +25,6 @@ const calculateFinalPrice = (price, deliveryCharges = 0) => {
  * @param {number} totalPrice 
  * @returns delivery charge based on total price
  */
-const calculateDeliveryCharges = (totalPrice) => (totalPrice > 200 ? 0 : 99);
+const calculateDeliveryCharges = (totalPrice) => (totalPrice.sum > 200 ? 0 : 99);
 
 export { calculatePrice, calculateFinalPrice, calculateDeliveryCharges }

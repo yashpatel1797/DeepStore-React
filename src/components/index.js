@@ -8,3 +8,6 @@ export { Hero } from "./Hero/Hero";
 export { Navbar } from "./Navbar/Navbar";
 export { NewRelease } from "./NewRelease/NewRelease";
 export { VerticalCard } from "./VerticalCard/VerticalCard";
+export { Error } from "./Error/Error";
+export { EmptyData } from "./EmptyData/EmptyData";
+export { Loader } from "./Loader/Loader"
