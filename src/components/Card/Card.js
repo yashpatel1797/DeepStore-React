@@ -37,11 +37,11 @@ const Card = (props) => {
         <>
             <div className="card-vertical">
                 <div className="image-container">
-                    <img
+                    <Link to={`/products/${data._id}`} ><img
                         src={data.image}
-                        alt=""
+                        alt={data.title}
                         className="card-image"
-                    />
+                    /></Link>
                     {data.best_selling === "true" && <span className="card-badge"> Best Selling</span>}
                     {data.new_arrival === "true" && <span className="card-badge"> New Arrival</span>}
                 </div>
