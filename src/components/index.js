@@ -10,4 +10,9 @@ export { NewRelease } from "./NewRelease/NewRelease";
 export { VerticalCard } from "./VerticalCard/VerticalCard";
 export { Error } from "./Error/Error";
 export { EmptyData } from "./EmptyData/EmptyData";
-export { Loader } from "./Loader/Loader"
+export { Loader } from "./Loader/Loader";
+export { Address } from "./Address/Address";
+export { AddressModal } from "./AddressModal/AddressModal"
+export { UserProfile } from "./UserProfile/UserProfile"
+export { AddressCard } from "./AddressCard/AddressCard"
+export { ChangeAddress } from "./ChangeAddress/ChangeAddress"

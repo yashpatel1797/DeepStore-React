@@ -10,7 +10,6 @@ const Products = () => {
 
     return (
         <>
-            <div className="spacer-3rem"></div>
             <div className="filter-products">
                 <div className="grid-20-80">
                     <Filter />
