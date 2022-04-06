@@ -1,18 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Card, Filter } from "components"
 import { useCart } from "context"
 import { filterFunction } from 'utilities'
 import "./Products.css"
 
 const Products = () => {
+    const [toggle, setToggle] = useState(false);
     const { productsData, sortBy, selectedRating, priceRange, selectedCategory, searchQuery } = useCart()
     const data = filterFunction(productsData, sortBy, selectedRating, priceRange, selectedCategory, searchQuery)
 
     return (
         <>
-            <div className="filter-products">
+            <div className={`${toggle ? "active" : ""} filter-products`}>
                 <div className="grid-20-80">
-                    <Filter />
+                    <Filter setToggle={setToggle} />
                     <div className="products">
                         <div className="grid-4-column">
                             {data.map(product => <Card item={product} key={product.id} />)}

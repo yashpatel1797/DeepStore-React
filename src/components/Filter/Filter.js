@@ -2,12 +2,13 @@ import React from 'react';
 import { useCart } from 'context';
 import './Filter.css'
 
-const Filter = () => {
+const Filter = ({ setToggle }) => {
+
     const { filterDispatch, sortBy, selectedRating, priceRange, selectedCategory } = useCart()
 
     return (
         <>
-            <div className="filter-hamburger">
+            <div className="filter-hamburger" onClick={() => setToggle(pre => !pre)}>
                 <span className="material-icons"> filter_alt </span>
             </div>
             <div className="filter">

@@ -13,7 +13,6 @@ const filterFunction = (productsData, sortBy, selectedRating, priceRange, select
 
     if (sortBy) {
         filteredProducts = filteredProducts.sort((a, b) => sortBy === "LOW_TO_HIGH" ? a.price - b.price : b.price - a.price)
-        console.log(filteredProducts);
     }
 
     if (selectedRating) {
