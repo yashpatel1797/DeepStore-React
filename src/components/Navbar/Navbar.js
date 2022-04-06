@@ -32,7 +32,7 @@ const Navbar = () => {
                     <span className="material-icons"> menu </span>
                 </div>
                 <div className="nav-user">
-                    <Link to="/login" className="btn nav-user-btn">
+                    <Link to={isLogin ? "/profile" : "/login"} className="btn nav-user-btn">
                         <span className="material-icons"> person </span>
                         <span>{firstName ? `Hi ${firstName}` : "Login"} </span></Link>
                     <span className="nav-notification-icon">
