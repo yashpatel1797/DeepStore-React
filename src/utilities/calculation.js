@@ -27,4 +27,12 @@ const calculateFinalPrice = (price, deliveryCharges = 0) => {
  */
 const calculateDeliveryCharges = (totalPrice) => (totalPrice.sum > 200 ? 0 : 99);
 
-export { calculatePrice, calculateFinalPrice, calculateDeliveryCharges }
+const getPriceAfterCoupon = (coupon, finalPrice) => {
+    if (coupon) {
+        return coupon === "50OFF" ? finalPrice - 50 : finalPrice - finalPrice * 0.1
+    }
+    return finalPrice
+}
+
+
+export { calculatePrice, calculateFinalPrice, calculateDeliveryCharges, getPriceAfterCoupon }

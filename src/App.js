@@ -1,6 +1,6 @@
 import './App.css';
-import { Home, Products, Wishlist, Cart, Login, Signup } from "pages";
-import { Navbar, Footer, Error } from 'components';
+import { Home, Products, Wishlist, Cart, Login, Signup, Profile } from "pages";
+import { Navbar, Footer, Error, UserProfile, Address } from 'components';
 import { Routes, Route } from "react-router-dom";
 import MockMan from 'mockman-js';
 import { ScrollTop } from 'utilities';
@@ -32,6 +32,10 @@ function App() {
           <Route path="/" element={<PrivateRoute />}>
             <Route path="/cart" element={<Cart />} />
             <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/profile" element={<Profile />} >
+              <Route index element={<UserProfile />} />
+              <Route path="address" element={<Address />} />
+            </Route>
           </Route>
           <Route path="*" element={<Error />} />
         </Routes>

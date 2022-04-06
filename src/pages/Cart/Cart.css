@@ -4,6 +4,15 @@
   display: flex;
   justify-content: space-evenly;
 }
+.address-info {
+  display: flex;
+  padding: 1.5rem;
+  margin: 1.5rem;
+  justify-content: space-evenly;
+  font-size: 2rem;
+  border: solid 1px;
+  border-radius: 0.5rem;
+}
 @media screen and (max-width: 800px) {
   .cart {
     flex-direction: column;

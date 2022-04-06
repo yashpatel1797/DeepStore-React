@@ -1,0 +1,45 @@
+import React from 'react'
+import { NavLink, Outlet } from 'react-router-dom'
+import styles from "./Profile.module.css"
+import classes from "styles/grid.module.css"
+const Profile = () => {
+    return (
+        <div>
+            <h1>My Profile</h1>
+            <div className={classes.grid_15_85}>
+                <ul className={styles.sidebar__links}>
+                    <li>
+                        <NavLink
+                            to="/profile"
+                            className={({ isActive }) => `${styles.sidebar__link_item} ${isActive ? styles.active__link : ""
+                                }`}
+                        >
+                            Profile
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/profile/address"
+                            className={({ isActive }) => `${styles.sidebar__link_item} ${isActive ? styles.active__link : ""
+                                }`}
+                        >
+                            Address
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/profile/setting"
+                            className={({ isActive }) => `${styles.sidebar__link_item} ${isActive ? styles.active__link : ""
+                                }`}
+                        >
+                            Setting
+                        </NavLink>
+                    </li>
+                </ul>
+                <div><Outlet /></div>
+            </div>
+        </div>
+    )
+}
+
+export { Profile }

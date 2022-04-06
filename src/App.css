@@ -1,5 +1,7 @@
 .App{
   min-height: calc(100vh - 5rem);
+  background-color: var(--color-grey-light-1);
+
 }
 .spacer-1rem {
   width: 100%;
