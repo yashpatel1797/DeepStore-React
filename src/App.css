@@ -28,7 +28,9 @@
   width: 100%;
   object-fit: contain;
 }
-
+.padding {
+  padding: 1rem;
+}
 .card-vertical:hover {
   box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 20%);
   transform: scale(1.01);

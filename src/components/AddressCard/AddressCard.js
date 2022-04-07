@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAddress } from 'context';
+import styles from "./AddressCard.module.css"
 const AddressCard = ({ address, setShowModal, setEditAddress, setModal }) => {
     const { selectedAddressId, addressDispatch } = useAddress();
     const editAddressHandler = () => {
@@ -16,18 +17,20 @@ const AddressCard = ({ address, setShowModal, setEditAddress, setModal }) => {
     return (
         <div>
             <li>
-                <label className="list-label">
+                <label className={`${styles["list-label"]} list-label`}>
                     <input
                         type="radio"
                         name="address"
                         checked={address._id === selectedAddressId}
                         onChange={selectAddressHandler} />
-                    <p>{address.firstName}</p>
-                    <p>{address.mobileNumber}</p>
-                    <p>{address.pinCode}</p>
-                    <p>{address.home}</p>
-                    <p>{address.state}</p>
-                    <p>{address.country}</p>
+                    <div>
+                        <p>{address.firstName}</p>
+                        <p>{address.mobileNumber}</p>
+                        <p>{address.pinCode}</p>
+                        <p>{address.home}</p>
+                        <p>{address.state}</p>
+                        <p>{address.country}</p>
+                    </div>
                 </label>
                 <button className="btn" onClick={editAddressHandler}>Edit</button>
                 <button className="btn" onClick={removeAddressHandler}>remove</button>

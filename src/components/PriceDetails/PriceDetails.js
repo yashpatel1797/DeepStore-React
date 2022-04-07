@@ -1,18 +1,14 @@
 import React, { useState } from 'react'
 import { useAddress, useCart } from 'context';
-import { calculatePrice, calculateFinalPrice, calculateDeliveryCharges, getPriceAfterCoupon } from 'utilities';
-import "./CheckOut.css"
+import { Link } from 'react-router-dom';
+import "./PriceDetails.css"
 import styles from "components/AddressModal/AddressModal.module.css";
 import ReactDOM from "react-dom"
 
-const CheckOut = () => {
-    const { cartItem } = useCart();
-    const totalPrice = calculatePrice(cartItem)
-    const deliveryCharges = calculateDeliveryCharges(totalPrice)
-    const finalPrice = calculateFinalPrice(totalPrice, deliveryCharges)
+const PriceDetails = () => {
+    const { cartItem, totalPrice, deliveryCharges } = useCart();
     const [showModal, setShowModal] = useState(false)
-    const { coupon, addressDispatch } = useAddress();
-    const priceAfterCoupon = getPriceAfterCoupon(coupon, finalPrice);
+    const { coupon, addressDispatch, priceAfterCoupon, selectedAddressId } = useAddress();
     const couponHandler = (e) => {
         addressDispatch({ type: "UPDATE_COUPON", payload: e.target.value })
         setShowModal(false)
@@ -94,11 +90,18 @@ const CheckOut = () => {
                     <p>₹{(priceAfterCoupon).toFixed(2)}</p>
                 </div>
                 <p>You will save {(totalPrice.discount).toFixed(2)} on this order</p>
-                <button className="btn btn-solid">Place Order</button>
+                {selectedAddressId ? <Link to="/checkout"><button className="btn btn-solid">Checkout</button></Link> :
+                    <div>
+                        <button className="btn btn-solid" disabled>Checkout</button>
+                        <div className="alert alert-danger">
+                            <span className="material-icons alert-icon"> warning </span>Select Address
+                        </div>
+
+                    </div>}
 
             </div>
         </>
     )
 }
 
-export { CheckOut }
+export { PriceDetails }

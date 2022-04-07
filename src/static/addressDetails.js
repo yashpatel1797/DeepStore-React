@@ -1,8 +1,8 @@
 export const addressDetails = {
-    firstName: "yash",
+    firstName: "Yash",
     mobileNumber: "9879642245",
     pinCode: "543897",
-    home: "plot no: 345, xyvd socity",
+    home: "House no: 345, Gandhinagar",
     state: "Gujarat",
     country: "India",
 }

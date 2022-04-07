@@ -1,6 +1,6 @@
 import React, { useContext, createContext, useReducer, useEffect } from 'react'
 import { cartReducer, filterReducer, wishlistReducer } from 'reducer';
-import { getRequestDataFromServer } from 'utilities'
+import { calculatePrice, calculateFinalPrice, calculateDeliveryCharges, getRequestDataFromServer } from 'utilities'
 const CartContext = createContext();
 
 
@@ -30,9 +30,11 @@ const CartProvider = ({ children }) => {
   })
   const { wishlistItem } = wishlistState
 
-
+  const totalPrice = calculatePrice(cartItem)
+  const deliveryCharges = calculateDeliveryCharges(totalPrice)
+  const finalPrice = calculateFinalPrice(totalPrice, deliveryCharges)
   return (
-    <CartContext.Provider value={{ productsData, cartItem, cartDispatch, sortBy, selectedRating, priceRange, selectedCategory, searchQuery, filterDispatch, wishlistItem, wishlistDispatch }}>
+    <CartContext.Provider value={{ productsData, cartItem, cartDispatch, sortBy, selectedRating, priceRange, selectedCategory, searchQuery, totalPrice, deliveryCharges, finalPrice, filterDispatch, wishlistItem, wishlistDispatch }}>
       {children}
     </CartContext.Provider>
   )

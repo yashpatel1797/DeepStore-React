@@ -1,6 +1,6 @@
 export { BestSelling } from "./BestSelling/BestSelling";
 export { Card } from "./Card/Card";
-export { CheckOut } from "./CheckOut/CheckOut";
+export { PriceDetails } from "./PriceDetails/PriceDetails";
 export { FeatureCategory } from "./FeatureCategory/FeatureCategory";
 export { Filter } from "./Filter/Filter";
 export { Footer } from "./Footer/Footer";

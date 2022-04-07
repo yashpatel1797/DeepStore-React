@@ -10,15 +10,15 @@ import './index.css'
 makeServer();
 ReactDOM.render(
   <AuthProvider>
-    <AddressProvider>
-      <CartProvider>
+    <CartProvider>
+      <AddressProvider>
         <React.StrictMode>
           <BrowserRouter>
             <App />
           </BrowserRouter>
         </React.StrictMode>
-      </CartProvider>
-    </AddressProvider>
+      </AddressProvider>
+    </CartProvider>
   </AuthProvider>
   ,
   document.getElementById('root')

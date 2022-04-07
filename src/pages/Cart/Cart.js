@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { VerticalCard, CheckOut, EmptyData, ChangeAddress } from "components"
+import { VerticalCard, PriceDetails, EmptyData, ChangeAddress } from "components"
 import './Cart.css'
 import { useCart, useAddress } from 'context'
 
@@ -26,7 +26,7 @@ const Cart = () => {
                         </div>
                         {cartItem.map(pro => <VerticalCard item={pro} key={pro._id} />)}
                     </div>
-                    <CheckOut />
+                    <PriceDetails />
                 </div>}
         </>
     )

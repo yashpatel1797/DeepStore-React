@@ -26,15 +26,6 @@ const Profile = () => {
                             Address
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink
-                            to="/profile/setting"
-                            className={({ isActive }) => `${styles.sidebar__link_item} ${isActive ? styles.active__link : ""
-                                }`}
-                        >
-                            Setting
-                        </NavLink>
-                    </li>
                 </ul>
                 <div><Outlet /></div>
             </div>
