@@ -31,11 +31,15 @@ const Signup = () => {
         try {
             setIsLoading(true);
             const response = await axios.post('api/auth/signup', { firstName, lastName, email, password });
-            localStorage.setItem("token", response.data.encodedToken)
-            localStorage.setItem('userData', JSON.stringify(response.data.createdUser));
-            authDispatch({ type: "TOKEN_ADD", payload: response.data.encodedToken })
+            if (response.status === 201) {
+                localStorage.setItem("token", response.data.encodedToken)
+                localStorage.setItem('userData', JSON.stringify(response.data.createdUser));
+                authDispatch({ type: "TOKEN_ADD", payload: response.data.encodedToken })
+                navigate("/")
+            } else {
+                navigate("/signup")
+            }
             setIsLoading(false);
-            navigate("/")
         } catch (error) {
             setIsLoading(false);
             toast.error(<p>not signup. Try again.</p>)
@@ -56,6 +60,7 @@ const Signup = () => {
                     <div className="spacer-3rem"></div>
                     <form onSubmit={(e) => submitHandler(e, firstName, lastName, email, password, confirmPassword)}>
                         <input
+                            required
                             placeholder="Enter first name"
                             className="input-field"
                             type="text"
@@ -64,7 +69,8 @@ const Signup = () => {
                             onChange={(e) => signupDispatch({ type: "SET_FIRSTNAME", payload: e.target.value })}
                         />
                         <input
-                            placeholder="Enter last email"
+                            required
+                            placeholder="Enter last name"
                             className="input-field"
                             type="text"
                             id="lastName"
@@ -72,6 +78,7 @@ const Signup = () => {
                             onChange={(e) => signupDispatch({ type: "SET_LASTNAME", payload: e.target.value })}
                         />
                         <input
+                            required
                             placeholder="Enter email"
                             className="input-field"
                             type="email"
@@ -81,6 +88,7 @@ const Signup = () => {
                         />
                         <span className="password-input">
                             <input
+                                required
                                 placeholder="Enter password"
                                 className="input-field"
                                 type={togglePassword ? "text" : "password"}
@@ -96,6 +104,7 @@ const Signup = () => {
                         </span>
                         <span className='password-input'>
                             <input
+                                required
                                 placeholder="Confirm password"
                                 className="input-field"
                                 type={toggleRePassword ? "text" : "password"}
