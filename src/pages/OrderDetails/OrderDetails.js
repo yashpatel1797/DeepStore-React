@@ -2,7 +2,6 @@ import { useAddress } from 'context'
 import React from 'react'
 import { Link } from 'react-router-dom'
 const OrderDetails = () => {
-    const { orders } = useAddress();
     return (
 
         <div className='text-center'>

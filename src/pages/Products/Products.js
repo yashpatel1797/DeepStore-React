@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card, Filter } from "components"
+import { Card, EmptyData, Filter } from "components"
 import { useCart } from "context"
 import { filterFunction } from 'utilities'
 import "./Products.css"
@@ -15,9 +15,11 @@ const Products = () => {
                 <div className="grid-20-80">
                     <Filter setToggle={setToggle} />
                     <div className="products">
-                        <div className="grid-4-column">
-                            {data.map(product => <Card item={product} key={product.id} />)}
-                        </div>
+                        {data.length <= 0 ? <EmptyData /> :
+                            <div className="grid-4-column">
+                                {data.map(product => <Card item={product} key={product.id} />)}
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

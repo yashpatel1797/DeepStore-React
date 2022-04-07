@@ -10,7 +10,7 @@ const getRequestDataFromServer = async (url, dispatch) => {
         const { data: { products } } = await axios.get(url)
         dispatch({ type: "FETCH_PRODUCTS_DATA", payload: products })
     } catch {
-        console.log(error);
+
     }
 }
 
@@ -28,7 +28,7 @@ const getCartItems = async (token, dispatch) => {
         })
         dispatch({ type: "FETCH_CART_DATA", payload: res.data.cart })
     } catch (error) {
-        console.log(error);
+
     }
 }
 
@@ -54,7 +54,7 @@ const updateCart = async (data, token) => {
         dataToUpdate.cart = [...res.data.cart]
         localStorage.setItem('userData', JSON.stringify(dataToUpdate))
     } catch {
-        console.error(error);
+
         toast.error(<p>Failed to add Item in Cart.</p>)
     }
 }
@@ -76,7 +76,7 @@ const deleteCart = async (data, token) => {
         dataToUpdate.cart = [...res.data.cart]
         localStorage.setItem('userData', JSON.stringify(dataToUpdate))
     } catch {
-        console.error(error);
+
         toast.error(<p>Failed to remove item from Cart.</p>)
     }
 }
@@ -101,7 +101,7 @@ const IncreaseCartQuantity = async (data, token) => {
         dataToUpdate.cart = [...res.data.cart]
         localStorage.setItem('userData', JSON.stringify(dataToUpdate))
     } catch (error) {
-        console.log(error);
+
         toast.error(<p>Failed to increase Cart Quantity.</p>)
     }
 }
@@ -126,7 +126,7 @@ const decreaseCartQuantity = async (data, token) => {
         dataToUpdate.cart = [...res.data.cart]
         localStorage.setItem('userData', JSON.stringify(dataToUpdate))
     } catch (error) {
-        console.log(error);
+
         toast.error(<p>Failed to decrease Cart Quantity.</p>)
     }
 }
@@ -153,7 +153,7 @@ const addItemInWishlist = async (data, token) => {
         dataToUpdate.wishlist = [...res.data.wishlist]
         localStorage.setItem('userData', JSON.stringify(dataToUpdate))
     } catch {
-        console.error(error);
+
         toast.error(<p>Failed to add item in wishlist.</p>)
     }
 }
@@ -175,7 +175,7 @@ const removeItemFromWishlist = async (data, token) => {
         dataToUpdate.wishlist = [...res.data.wishlist]
         localStorage.setItem('userData', JSON.stringify(dataToUpdate))
     } catch {
-        console.error(error);
+
         toast.error(<p>Failed to remove item from wishlist.</p>)
     }
 }

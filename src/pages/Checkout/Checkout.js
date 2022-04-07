@@ -59,7 +59,7 @@ const Checkout = () => {
                 email: email,
             },
             theme: {
-                "color": "#3399cc"
+                "color": "#55c57a"
             }
         };
         const paymentObject = new window.Razorpay(options);

@@ -7,8 +7,7 @@ const Navbar = () => {
     const { cartItem, wishlistItem, filterDispatch } = useCart();
     const [toggle, setToggle] = useState(false);
     const logoutHandler = () => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("userData");
+        localStorage.clear();
         authDispatch({ type: "USER_LOGOUT" })
     }
     return (
