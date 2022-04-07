@@ -12,6 +12,8 @@ export const cartReducer = (state, { type, payload }) => {
             return { ...state, productsData: payload }
         case "FETCH_CART_DATA":
             return { ...state, cartItem: payload }
+        case "INITIAL_CART":
+            return { ...state, cartItem: payload }
         default:
             return state;
     }

@@ -1,5 +1,5 @@
 import './App.css';
-import { Home, Products, Wishlist, Cart, Login, Signup, Profile, SingleProduct } from "pages";
+import { Home, Products, Wishlist, Cart, Login, Signup, Profile, SingleProduct, Checkout, OrderDetails } from "pages";
 import { Navbar, Footer, Error, UserProfile, Address } from 'components';
 import { Routes, Route } from "react-router-dom";
 import MockMan from 'mockman-js';
@@ -33,9 +33,12 @@ function App() {
           <Route path="/" element={<PrivateRoute />}>
             <Route path="/cart" element={<Cart />} />
             <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/order" element={<OrderDetails />} />
             <Route path="/profile" element={<Profile />} >
               <Route index element={<UserProfile />} />
               <Route path="address" element={<Address />} />
+
             </Route>
           </Route>
           <Route path="*" element={<Error />} />

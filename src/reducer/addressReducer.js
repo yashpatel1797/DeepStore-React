@@ -22,6 +22,8 @@ const addressReducer = (state, { type, payload }) => {
             return { ...state, coupon: payload }
         case "DELETE_COUPON":
             return { ...state, coupon: "" }
+        case "ADD_ORDERS":
+            return { ...state, orders: [payload, ...state.orders] }
         default:
             return state;
     }
