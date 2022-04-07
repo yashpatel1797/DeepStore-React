@@ -32,7 +32,7 @@ const Checkout = () => {
         }
         const options = {
             key: "rzp_test_X9pzt6NPK1ihnB",
-            amount: priceAfterCoupon * 100,
+            amount: priceAfterCoupon.toFixed(2) * 100,
             currency: "INR",
             name: "Deep Store",
             description: "Enjoy Reading book.",
@@ -112,20 +112,20 @@ const Checkout = () => {
             <div className={`${styles.orderDetails}`}>
                 <div>
                     <p>Price: </p>
-                    <p>{totalPrice.sum}</p>
+                    <p>{(totalPrice.sum).toFixed(2)}</p>
                 </div>
                 <div>
                     <p>Discount:</p>
-                    <p> {totalPrice.discount}</p>
+                    <p> {(totalPrice.discount).toFixed(2)}</p>
                 </div>
                 <div>
                     <p>Delivery Charges:</p>
-                    <p> {deliveryCharges}</p>
+                    <p> {(deliveryCharges).toFixed(2)}</p>
                 </div>
                 {coupon && <div><p>Coupon:</p><p> {coupon}</p></div>}
                 <div>
                     <p>Total Amount:</p>
-                    <p> {priceAfterCoupon}</p>
+                    <p> {(priceAfterCoupon).toFixed(2)}</p>
                 </div>
             </div>
             <button className='btn btn-solid' onClick={displayRazorpay}>Order</button>
