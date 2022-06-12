@@ -4,9 +4,9 @@ import styles from "./Profile.module.css"
 import classes from "styles/grid.module.css"
 const Profile = () => {
     return (
-        <div>
-            <h1>My Profile</h1>
-            <div className={classes.grid_15_85}>
+        <>
+            <h1 className={styles.header}>My Profile</h1>
+            <div className={styles["profile-container"]}>
                 <ul className={styles.sidebar__links}>
                     <li>
                         <NavLink
@@ -29,7 +29,7 @@ const Profile = () => {
                 </ul>
                 <div><Outlet /></div>
             </div>
-        </div>
+        </>
     )
 }
 

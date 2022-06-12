@@ -38,35 +38,35 @@ const SingleProduct = () => {
     return (
         <div className="grid-50-50 product-container">
             <div>
-                <img className="img-responsive card-image" src={product.image} alt={product.title} />
+                <img className="img-responsive card-image" src={product?.image} alt={product?.title} />
             </div>
             <div className="text-container">
-                <h1 className='fn-weight-l'>{product.title}</h1>
-                <p>by {product.author}</p>
+                <h1 className='fn-weight-l'>{product?.title}</h1>
+                <p>by {product?.author}</p>
                 <div className='spacer-3rem'></div>
                 <div className="text-container-desc">
 
-                    <p>{product.description}</p>
+                    <p>{product?.description}</p>
                     <div className='spacer-3rem'></div>
 
-                    <p>Rs. {product.price}<span className="text-container-strike">Rs. {product.original_price}</span>
-                        <span>{product.discount}% off</span></p>
+                    <p>Rs. {product?.price}<span className="text-container-strike">Rs. {product?.original_price}</span>
+                        <span>{product?.discount}% off</span></p>
                 </div>
                 <div className='spacer-3rem'></div>
 
                 <div className='btn-container'>
-                    {cartItem.some((item) => item.id === product.id) ? (
+                    {cartItem.some((item) => item.id === product?.id) ? (
                         <Link to="/cart">
                             <button className="btn btn-solid btn-icon-center">
-                                <span className="material-icons"> save </span>Go to Cart
+                                <span className="material-icons">  shopping_cart  </span>Go to cart
                             </button>
                         </Link>
                     ) : (
                         <button className="btn btn-solid btn-icon-center" onClick={addToCartHandler}>
-                            <span className="material-icons"> save </span>Add to cart
+                            <span className="material-icons">  shopping_cart  </span>Add to cart
                         </button>
                     )}
-                    {wishlistItem.some((item) => item.id === product.id) ? (
+                    {wishlistItem.some((item) => item.id === product?.id) ? (
                         <button
                             className="btn btn-outline btn-icon-center"
                             onClick={removeWishlistHandler}>

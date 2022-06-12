@@ -2,6 +2,7 @@ import React, { useReducer } from 'react'
 import { useCart, useAuth } from "context"
 import { Link, useNavigate } from "react-router-dom";
 import { addItemInWishlist, updateCart, removeItemFromWishlist } from 'utilities';
+import styles from "./Card.module.css"
 
 const Card = (props) => {
 
@@ -44,9 +45,10 @@ const Card = (props) => {
                     /></Link>
                     {data.best_selling === "true" && <span className="card-badge"> Best Selling</span>}
                     {data.new_arrival === "true" && <span className="card-badge"> New Arrival</span>}
+                    <span className={`${styles["card-badge"]} card-badge `}>{data.rating.rate} <span className='material-icons fn-size-xs'>star</span></span>
                 </div>
                 <div className="text-container">
-                    <div className="text-container-title">
+                    <div className={`${styles["text-container-title"]} text-container-title`}>
                         <h3>{data.title}</h3>
                         {wishlistItem.some((item) => item.id === data.id) ? (
                             <button className="btn btn-icon-only" onClick={removeWishlistHandler}>
@@ -62,19 +64,20 @@ const Card = (props) => {
                     <div className="text-container-desc">
                         <p>by {data.author}</p>
                         <p>
-                            Rs. {data.price}<span className="text-container-strike">Rs. {data.original_price}</span>
-                            <span>{data.discount}% off</span>
+                            <span className='fn-weight-m fn-size-m'>Rs. {data.price}</span>
+                            <span className="text-container-strike">Rs. {data.original_price}</span>
+                            <span className={styles.discount}>{data.discount}% off</span>
                         </p>
                     </div>
                     {cartItem.some((item) => item.id === data.id) ? (
                         <Link to="/cart">
-                            <button className="btn btn-solid btn-icon-center" to="/cart">
-                                <span className="material-icons"> save </span>Go to Cart
+                            <button className={`${styles["btn-icon-center"]} btn btn-solid btn-icon-center`} to="/cart">
+                                <span className="material-icons">  shopping_cart  </span>Go to Cart
                             </button>
                         </Link>
                     ) : (
-                        <button className="btn btn-solid btn-icon-center" onClick={addToCartHandler}>
-                            <span className="material-icons"> save </span>Add to cart
+                        <button className={`${styles["btn-icon-center"]} btn btn-solid btn-icon-center`} onClick={addToCartHandler}>
+                            <span className="material-icons">  shopping_cart  </span>Add to cart
                         </button>
                     )}
                 </div>

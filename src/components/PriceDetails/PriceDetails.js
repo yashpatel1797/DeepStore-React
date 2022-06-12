@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { useAddress, useCart } from 'context';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "./PriceDetails.css"
 import styles from "components/AddressModal/AddressModal.module.css";
 import ReactDOM from "react-dom"
 
 const PriceDetails = () => {
     const { cartItem, totalPrice, deliveryCharges } = useCart();
+    const navigate = useNavigate();
     const [showModal, setShowModal] = useState(false)
     const { coupon, addressDispatch, priceAfterCoupon, selectedAddressId } = useAddress();
     const couponHandler = (e) => {
@@ -90,14 +91,15 @@ const PriceDetails = () => {
                     <p>₹{(priceAfterCoupon).toFixed(2)}</p>
                 </div>
                 <p>You will save {(totalPrice.discount).toFixed(2)} on this order</p>
-                {selectedAddressId ? <Link to="/checkout"><button className="btn btn-solid">Checkout</button></Link> :
-                    <div>
+                {selectedAddressId ? <button className="btn btn-solid" onClick={() => navigate("/checkout")}>Checkout</button> :
+                    <>
                         <button className="btn btn-solid" disabled>Checkout</button>
+
                         <div className="alert alert-danger">
                             <span className="material-icons alert-icon"> warning </span>Select Address
                         </div>
-
-                    </div>}
+                    </>
+                }
 
             </div>
         </>

@@ -1,9 +1,18 @@
-.filter {
-  padding: 0 5rem;
+.filter{
+  min-width: 27rem;
+  position: sticky;
+  top: 8rem;
+  padding: 0 3rem;
+  overflow: auto;
+  height: calc(100vh - 9rem);
 }
 .filter-hamburger {
   display: none;
   cursor: pointer;
+}
+.price-range {
+  display: flex;
+  justify-content: space-around;
 }
 @media screen and (max-width: 800px) {
   .filter {

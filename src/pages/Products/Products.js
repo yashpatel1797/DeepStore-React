@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Card, EmptyData, Filter } from "components"
 import { useCart } from "context"
 import { filterFunction } from 'utilities'
-import "./Products.css"
+import styles from "./Products.module.css"
 
 const Products = () => {
     const [toggle, setToggle] = useState(false);
@@ -12,11 +12,11 @@ const Products = () => {
     return (
         <>
             <div className={`${toggle ? "active" : ""} filter-products`}>
-                <div className="grid-20-80">
+                <div className={`${styles["grid-20-80"]} grid-20-80`}>
                     <Filter setToggle={setToggle} />
                     <div className="products">
                         {data.length <= 0 ? <EmptyData /> :
-                            <div className="grid-4-column">
+                            <div className={`${styles["grid-4-column"]} grid-4-column`}>
                                 {data.map(product => <Card item={product} key={product.id} />)}
                             </div>
                         }

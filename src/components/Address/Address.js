@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useAddress } from 'context'
 import { AddressModal, AddressCard } from ".."
-
+import styles from "./Address.module.css";
 const Address = ({ setModal }) => {
     const [showModal, setShowModal] = useState(false);
     const [editAddress, setEditAddress] = useState(null);
@@ -11,10 +11,10 @@ const Address = ({ setModal }) => {
         setShowModal(true);
     }
     return (
-        <div>
+        <div className={styles.header}>
             {showModal && <AddressModal setShowModal={setShowModal} editAddress={editAddress} />}
             <button
-                className='btn btn-outline btn-icon-center'
+                className={`${styles.action} btn btn-outline btn-icon-center`}
                 onClick={AddAddressHandler}>
                 <span className="material-icons"> add </span>
                 Add New Address
@@ -28,11 +28,11 @@ const Address = ({ setModal }) => {
                         setEditAddress={setEditAddress}
                         setModal={setModal} />
                 )) : (
-                    <li>Please add a address.</li>
+                    <li>Please add an address.</li>
                 )
                 }
             </ul>
-        </div>
+        </div >
     )
 }
 

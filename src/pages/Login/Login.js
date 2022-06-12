@@ -96,7 +96,7 @@ const Login = () => {
                             </div>
                             <button className="btn" disabled>Forgot Password</button>
                         </section>
-                        <button className="btn btn-solid btn-login" onClick={testHandler}>Test credentials</button>
+                        <button className="btn btn-solid btn-login" onClick={testHandler}>Login as a Guest user</button>
                         <button className="btn btn-solid btn-login" type="submit">Login</button>
                     </form>
                     <div className="spacer-1rem"></div>

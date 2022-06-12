@@ -1,6 +1,6 @@
 import { useAddress, useAuth, useCart } from 'context'
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styles from "./Checkout.module.css"
 import { v4 as uuid } from "uuid"
 const loadScript = (src) => {
@@ -70,62 +70,48 @@ const Checkout = () => {
     return (
         <div className={styles.order}>
             <h2>Order Details</h2>
+            {cartItem.map(({ title, qty, _id, description, price, image }) =>
+                <Link to={`/products/${_id}`} key={_id}
+                    className={styles["product-details"]}>
+                    <img src={image}
+                        alt={title}
+                        className={styles["product-image"]}
+                    />
+                    <div className={styles["order-details"]} >
+                        <div>
+                            <p className={`${styles["order-title"]} fn-weight-m fn-size-m`}>{title}</p>
+                            <p className={styles["order-desc"]}>{description}</p>
+                        </div>
+                        <div>
+                            <span className='fn-size-m'>Quantity : {qty}, </span>
+                            <span className='fn-size-m'>Price: {price}</span>
+                        </div>
+                    </div>
+                </Link>
+            )}
+            <h2>Delivery Address</h2>
+            <div className={`${styles["delivery-details"]}`}>
+                <p>{address?.firstName}, {address?.home},</p>
+                <p>{address?.state} - {address?.pinCode}, {address?.country}</p>
+                <p>Mobile : {address?.mobileNumber}</p>
+            </div>
             <div>
-                {cartItem.map(({ title, qty, _id, price }) => <div className={`${styles.orderDetails} line padding`} key={_id}>
-                    <div>
-                        <p>Title: </p>
-                        <p>{title}</p>
-                    </div>
-                    <div>
-                        <p>Quantity : </p>
-                        <p>{qty}</p>
-                    </div>
-                    <div>
-                        <p>Price:</p>
-                        <p> {price}</p>
-                    </div>
+                <div className={`${styles["price-details"]} fn-size-m`}>
+                    <span>Price </span>
+                    <span>{(totalPrice.sum).toFixed(2)}</span>
                 </div>
-                )}
-            </div>
-            <h2>Address Details</h2>
-            <div className={`${styles.orderDetails}`}>
-                <div>
-                    <p>FirstName: </p><p>{address?.firstName},</p>
+                <div className={`${styles["price-details"]} fn-size-m`}>
+                    <span>Discount</span>
+                    <span> {(totalPrice.discount).toFixed(2)}</span>
                 </div>
-                <div>
-                    <p>home: </p><p>{address?.home},</p>
+                <div className={`${styles["price-details"]} fn-size-m`}>
+                    <span>Delivery Charges</span>
+                    <span> {(deliveryCharges).toFixed(2)}</span>
                 </div>
-                <div>
-                    <p>state: </p><p>{address?.state},</p>
-                </div>
-                <div>
-                    <p>country: </p><p>{address?.country},</p>
-                </div>
-                <div>
-                    <p>pinCode: </p><p>{address?.pinCode},</p>
-                </div>
-                <div>
-                    <p>mobileNumber: </p><p>{address?.mobileNumber}</p>
-                </div>
-            </div>
-            <h2>Price Details</h2>
-            <div className={`${styles.orderDetails}`}>
-                <div>
-                    <p>Price: </p>
-                    <p>{(totalPrice.sum).toFixed(2)}</p>
-                </div>
-                <div>
-                    <p>Discount:</p>
-                    <p> {(totalPrice.discount).toFixed(2)}</p>
-                </div>
-                <div>
-                    <p>Delivery Charges:</p>
-                    <p> {(deliveryCharges).toFixed(2)}</p>
-                </div>
-                {coupon && <div><p>Coupon:</p><p> {coupon}</p></div>}
-                <div>
-                    <p>Total Amount:</p>
-                    <p> {(priceAfterCoupon).toFixed(2)}</p>
+                {coupon && <div className={`${styles["price-details"]} fn-size-m`}><span>Coupon</span><span> {coupon}</span></div>}
+                <div className={`${styles["price-details"]} fn-size-m`}>
+                    <span>Total Amount</span>
+                    <span> {(priceAfterCoupon).toFixed(2)}</span>
                 </div>
             </div>
             <button className='btn btn-solid' onClick={displayRazorpay}>Order</button>

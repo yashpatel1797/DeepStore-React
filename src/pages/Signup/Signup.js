@@ -34,7 +34,9 @@ const Signup = () => {
             if (response.status === 201) {
                 localStorage.setItem("token", response.data.encodedToken)
                 localStorage.setItem('userData', JSON.stringify(response.data.createdUser));
+                authDispatch({ type: "USER_LOGIN" })
                 authDispatch({ type: "TOKEN_ADD", payload: response.data.encodedToken })
+                authDispatch({ type: "USER_DATA_ADD", payload: response.data.createdUser })
                 navigate("/")
             } else {
                 navigate("/signup")

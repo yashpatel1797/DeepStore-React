@@ -53,7 +53,7 @@ export const products = [
     discount: "18",
     image: "https://m.media-amazon.com/images/I/81C0rgkaoGL._AC_UY327_FMwebp_QL65_.jpg",
     rating: {
-      rate: "4",
+      rate: "2",
       count: "20"
     }
   },
@@ -70,7 +70,7 @@ export const products = [
     discount: "22",
     image: "https://m.media-amazon.com/images/I/411r+u9cd7L._AC_UY327_FMwebp_QL65_.jpg",
     rating: {
-      rate: "3",
+      rate: "1",
       count: "25"
     }
 
