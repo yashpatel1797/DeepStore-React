@@ -33,7 +33,7 @@ const Navbar = () => {
         <>
             <nav className={`${toggle ? "active" : ""} nav-bar`}>
                 <div className="nav-section">
-                    <Link to="/" className='logo-title fn-size-l'>DeepKart</Link>
+                    <Link to="/" className='logo-title fn-size-l'>DeepStore</Link>
 
                 </div>
                 <div className="nav-search">

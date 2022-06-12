@@ -2,7 +2,9 @@ import React from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import styles from "./Profile.module.css"
 import classes from "styles/grid.module.css"
+import { useDocumentTitle } from 'hooks/useDocumentTitle'
 const Profile = () => {
+    useDocumentTitle("Profile")
     return (
         <>
             <h1 className={styles.header}>My Profile</h1>

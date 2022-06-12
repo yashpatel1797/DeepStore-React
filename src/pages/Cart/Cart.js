@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { VerticalCard, PriceDetails, EmptyData, ChangeAddress } from "components"
+import { useDocumentTitle } from 'hooks/useDocumentTitle'
 import './Cart.css'
 import { useCart, useAddress } from 'context'
 
 const Cart = () => {
     const { cartItem } = useCart();
     const { addressList, selectedAddressId } = useAddress();
+
+    useDocumentTitle("Cart")
     const currentAddress = addressList?.find((address) => address._id === selectedAddressId)
     const dataPresent = currentAddress?.firstName ?? false;
     const [modal, setModal] = useState(false)

@@ -1,7 +1,9 @@
 import { useAddress } from 'context'
+import { useDocumentTitle } from 'hooks/useDocumentTitle'
 import React from 'react'
 import { Link } from 'react-router-dom'
 const OrderDetails = () => {
+    useDocumentTitle("Order")
     return (
 
         <div className='text-center'>

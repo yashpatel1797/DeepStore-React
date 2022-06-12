@@ -6,6 +6,7 @@ import axios from "axios"
 import { useNavigate, Link } from 'react-router-dom'
 import { Loader } from "components"
 import { toast } from "react-toastify";
+import { useDocumentTitle } from 'hooks/useDocumentTitle'
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Signup = () => {
     const [togglePassword, setTogglePassword] = useState(false);
     const [toggleRePassword, setToggleRePassword] = useState(false);
 
-
+    useDocumentTitle("Signup")
     const showPassword = togglePassword ? "visibility_off" : "visibility";
     const showRePassword = toggleRePassword ? "visibility_off" : "visibility";
 

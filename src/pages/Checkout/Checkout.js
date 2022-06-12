@@ -3,6 +3,7 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from "./Checkout.module.css"
 import { v4 as uuid } from "uuid"
+import { useDocumentTitle } from 'hooks/useDocumentTitle'
 const loadScript = (src) => {
     return new Promise((resolve) => {
         const script = document.createElement('script');
@@ -24,6 +25,7 @@ const Checkout = () => {
     const { cartItem, totalPrice, deliveryCharges, cartDispatch } = useCart();
     const { coupon, priceAfterCoupon } = useAddress();
 
+    useDocumentTitle("Checkout");
     const displayRazorpay = async () => {
         const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
         if (!res) {

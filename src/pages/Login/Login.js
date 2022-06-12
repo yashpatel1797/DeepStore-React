@@ -6,17 +6,19 @@ import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
 import { Loader } from "components"
 import { toast } from "react-toastify";
+import { useDocumentTitle } from 'hooks/useDocumentTitle'
 
 const Login = () => {
     const navigate = useNavigate()
     const { authDispatch } = useAuth();
-
     const [{ email, password }, loginDispatch] = useReducer(loginFormReducer, { email: "", password: "" })
     const [isLoading, setIsLoading] = useState(false)
 
 
     const [togglePassword, setTogglePassword] = useState(false);
     const showPassword = togglePassword ? "visibility_off" : "visibility";
+
+    useDocumentTitle("Login")
     const passwordVisibilityHandler = () => {
         setTogglePassword(togglePassword => !togglePassword)
     }

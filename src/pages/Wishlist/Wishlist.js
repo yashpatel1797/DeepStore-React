@@ -2,9 +2,11 @@ import React from 'react'
 import { Card, EmptyData } from 'components'
 import './Wishlist.css'
 import { useCart } from 'context'
+import { useDocumentTitle } from 'hooks/useDocumentTitle'
 
 const Wishlist = () => {
     const { wishlistItem } = useCart();
+    useDocumentTitle("Wishlist")
     return (
         <>
             <h3 className="page-title">My Wishlist ({wishlistItem.length} items)</h3>
