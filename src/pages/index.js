@@ -1,10 +1,6 @@
-export { Cart } from "./Cart/Cart";
 export { Home } from "./Home/Home";
 export { Login } from "./Login/Login";
 export { Products } from "./Products/Products";
 export { Signup } from "./Signup/Signup";
-export { Wishlist } from "./Wishlist/Wishlist";
 export { Profile } from "./Profile/Profile";
-export { SingleProduct } from "./SingleProduct/SingleProduct"
-export { Checkout } from "./Checkout/Checkout"
 export { OrderDetails } from "./OrderDetails/OrderDetails";
